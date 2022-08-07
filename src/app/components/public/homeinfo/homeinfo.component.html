@@ -1,0 +1,28 @@
+<div class="container">
+    <br>
+    <br>
+    <h1>Tissue Collection</h1>
+    <div class="row">
+      <ng-container *ngFor=" let tissue_collection of tissue_collections | async">
+        <a routerLink="">
+        <div class="blog-box hoverable">
+            <div class="col">
+                <div class="blog-inner-box"> 
+                    <p>{{tissue_collection.uid}}</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="blog-inner-box"> 
+                    <p>{{tissue_collection.disease_term}}</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="blog-inner-box"> 
+                    <p>{{tissue_collection.title}}</p>
+                </div>
+            </div>
+        </div>
+        </a>
+      </ng-container>
+    </div>
+</div>

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "tissue-sample-collection-app"
+  },
+  "targets": {
+    "tissue-sample-collection-app": {
+      "hosting": {
+        "tissue-sample-collection-app": [
+          "tissue-sample-collection-app"
+        ]
+      }
+    }
   }
 }
