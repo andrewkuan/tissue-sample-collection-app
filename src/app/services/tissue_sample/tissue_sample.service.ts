@@ -15,7 +15,7 @@ export class TissuesampleService {
   tissuesampleCollection: AngularFirestoreCollection<tissue_sample>;
   tissuesampleDocument!: AngularFirestoreDocument<tissue_sample>;
 
-  constructor( private afs : AngularFirestore) { 
+  constructor(private afs : AngularFirestore) { 
 
     this.tissuesampleCollection = this.afs.collection('tissue_sample', ref => ref.orderBy('uid','desc')); 
 

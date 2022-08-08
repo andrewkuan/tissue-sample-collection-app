@@ -1,5 +1,6 @@
 export interface tissue_collection {
-    uid: number;
+    uid: string;
+    nid:number;
     disease_term: string;
     title: string;
 }

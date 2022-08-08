@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { TissuecollectionService } from './../../../services/tissue_collection/tissue_collection.service';
+import { TissueCollectionService } from './../../../services/tissue_collection/tissue-collection.service';
 import { tissue_collection } from './../../../models/tissue_collection';
 
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -15,16 +15,16 @@ import { Subscription } from 'rxjs/internal/Subscription';
 })
 export class HomeinfoComponent implements OnInit {
 
-  constructor(private TissuecollectionService : TissuecollectionService, private router: Router) { }
+  constructor(private TissueCollectionService : TissueCollectionService, private router: Router) { }
 
-  tissue_collections!: Observable<tissue_collection[]>;
-  subscription!: Subscription;
+  tissue_collections: Observable<tissue_collection[]> | undefined;
+  subscription: Subscription | undefined;
   showSpinner: boolean = true;
   itemExist = true;
 
   ngOnInit(): void {
-    
-    this.tissue_collections = this.TissuecollectionService.getAllTissueCollection()
+
+    this.tissue_collections = this.TissueCollectionService.getAllTissueCollection()
 
   }
 

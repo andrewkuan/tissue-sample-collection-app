@@ -1,0 +1,22 @@
+<div class="container">
+    <br>
+    <br>
+    <h1>Tissue Collection</h1>
+    <div class=""row>
+        <ng-container *ngFor=" let tissue_collection of tissue_collections | async">
+            <a routerLink="../tissue_collection/{{tissue_collection.uid}}">
+                <div class="row"> 
+                    <div class="col">
+                        <p>{{tissue_collection.nid}}</p>
+                    </div>
+                    <div class="col">
+                        <p>{{tissue_collection.disease_term}}</p>
+                    </div>
+                    <div class="col">
+                        <p>{{tissue_collection.title}}</p>
+                    </div>
+                  </div>
+            </a>
+        </ng-container>
+    </div>
+</div>
