@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TissueCollectionService } from './tissue-collection.service';
+import { TissueCollectionService } from './tissue_collection.service';
 
 describe('TissueCollectionService', () => {
   let service: TissueCollectionService;

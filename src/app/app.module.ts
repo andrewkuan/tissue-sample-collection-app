@@ -4,17 +4,20 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 
 import { AppComponent } from './app.component';
 
-import { TissueCollectionService } from './services/tissue_collection/tissue-collection.service';
-import { TissuesampleService } from './services/tissue_sample/tissue_sample.service';
+import { TissueCollectionService } from './services/tissue_collection/tissue_collection.service';
+import { TissueSampleService } from './services/tissue_sample/tissue_sample.service';
 import { TissuecollectionEditComponent } from './components/public/tissuecollection-edit/tissuecollection-edit.component';
 import { TissuecollectionInfoComponent } from './components/public/tissuecollection-info/tissuecollection-info.component';
-import { HomeinfoComponent } from './components/public/homeinfo/homeinfo.component';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
-import { TissuecollectionDetailsComponent } from './components/public/tissuecollection-details/tissuecollection-details/tissuecollection-details.component';
+import { TissuecollectionDetailsComponent } from './components/public/tissuecollection-details/tissuecollection-details.component';
+import { NavbarComponent } from './components/main/navbar/navbar.component';
+import { TissuesampleInfoComponent } from './components/public/tissuesample-info/tissuesample-info.component';
+import { HomeComponent } from './components/public/home/home/home.component';
 
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
@@ -25,8 +28,10 @@ import { TissuecollectionDetailsComponent } from './components/public/tissuecoll
     routingComponents,
     TissuecollectionEditComponent,
     TissuecollectionInfoComponent,
-    HomeinfoComponent,
-    TissuecollectionDetailsComponent
+    TissuecollectionDetailsComponent,
+    NavbarComponent,
+    TissuesampleInfoComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,11 +39,12 @@ import { TissuecollectionDetailsComponent } from './components/public/tissuecoll
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MdbCollapseModule 
   ],
   providers: [
     TissueCollectionService,
-    TissuesampleService
+    TissueSampleService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]

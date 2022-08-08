@@ -1,23 +1,20 @@
 import { tissue_sample } from './../../models/tissue_sample';
-
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
-
 import { map } from 'rxjs/internal/operators/map';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class TissuesampleService {
+export class TissueSampleService {
 
   tissuesampleCollection: AngularFirestoreCollection<tissue_sample>;
   tissuesampleDocument!: AngularFirestoreDocument<tissue_sample>;
 
   constructor(private afs : AngularFirestore) { 
 
-    this.tissuesampleCollection = this.afs.collection('tissue_sample', ref => ref.orderBy('uid','desc')); 
+    this.tissuesampleCollection = this.afs.collection('tissue-sample', ref => ref.orderBy('nid','asc')); 
 
   }
 
@@ -32,20 +29,20 @@ export class TissuesampleService {
   }
 
   getTissueSample(tissuesampleUID:string){
-    this.tissuesampleDocument = this.afs.doc('/Tissue Sample/' + tissuesampleUID)
+    this.tissuesampleDocument = this.afs.doc('/tissue-sample/' + tissuesampleUID)
     return this.tissuesampleDocument.valueChanges()
   }
 
   createTissueSample(tissuesample:tissue_sample, tissuesampleUID:string){
-    this.afs.collection("Tissue Sample").doc(tissuesampleUID).set(tissuesample)
+    this.afs.collection("tissue-sample").doc(tissuesampleUID).set(tissuesample)
   }
 
   deleteTissueSample(tissuesample:tissue_sample){
-    this.afs.doc('/Tissue Sample/'+ tissuesample.uid).delete()
+    this.afs.doc('/tissue-sample/'+ tissuesample.uid).delete()
   }
 
   updateTissueSample(tissuesample:tissue_sample, tissuesampleUID:string){
-    return this.afs.collection("Tissue Sample").doc(tissuesampleUID).update(tissuesample);
+    return this.afs.collection("tissue-sample").doc(tissuesampleUID).update(tissuesample);
   }
 
 }

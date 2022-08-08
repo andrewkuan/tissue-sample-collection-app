@@ -1,22 +1,28 @@
-<div class="container">
-    <br>
-    <br>
-    <h1>Tissue Collection</h1>
-    <div class=""row>
-        <ng-container *ngFor=" let tissue_collection of tissue_collections | async">
-            <a routerLink="../tissue_collection/{{tissue_collection.uid}}">
-                <div class="row"> 
-                    <div class="col">
-                        <p>{{tissue_collection.nid}}</p>
-                    </div>
-                    <div class="col">
-                        <p>{{tissue_collection.disease_term}}</p>
-                    </div>
-                    <div class="col">
-                        <p>{{tissue_collection.title}}</p>
-                    </div>
-                  </div>
-            </a>
-        </ng-container>
-    </div>
+<br>
+<br>
+<h1>Tissue Collection</h1>
+<br>
+<div class="d-flex align-items-center bg-light mb-3">
+    <table class="table table-hover align-middle">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Disease Term</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let tissue_collection of tissue_collections | async" routerLink="../tissue_collection/{{tissue_collection.uid}}">
+                <td>{{tissue_collection.nid}}</td>
+                <td>{{tissue_collection.title}}</td>
+                <td>{{tissue_collection.disease_term}}</td>
+                <td>
+                    <button type="button" class="btn btn-link btn-sm px-3 dark" style="color:#262626" routerLink="../tissue_collection/{{tissue_collection.uid}}">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

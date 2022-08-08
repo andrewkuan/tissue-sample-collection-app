@@ -1,0 +1,11 @@
+<div class="container">
+    <br>
+    <br>
+    <h1> Tissue Collection #{{tissue_collection.nid}}</h1>
+        <div class="container">
+            <p>Title: <b>{{tissue_collection.title}}</b></p>
+            <p>Disease Term: <b>{{tissue_collection.disease_term}}</b></p>
+        </div>
+        <app-tissuesample-info [collection_id]="tissue_collection.nid" ></app-tissuesample-info>
+</div>
+

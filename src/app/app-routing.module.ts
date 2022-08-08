@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/public/home/home/home.component';
 
-import { HomeinfoComponent } from './components/public/homeinfo/homeinfo.component';
-import { TissuecollectionDetailsComponent } from './components/public/tissuecollection-details/tissuecollection-details/tissuecollection-details.component';
+import { TissuecollectionDetailsComponent } from './components/public/tissuecollection-details/tissuecollection-details.component';
 import { TissuecollectionEditComponent } from './components/public/tissuecollection-edit/tissuecollection-edit.component';
 import { TissuecollectionInfoComponent } from './components/public/tissuecollection-info/tissuecollection-info.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/tissuecollection-info', pathMatch: 'full' },
+  { path: '', redirectTo: '/tissue_collection_info', pathMatch: 'full' },
 
-  { path: 'home', component : HomeinfoComponent},
-  { path: 'tissuecollection-edit', component : TissuecollectionEditComponent},
-  { path: 'tissuecollection-info', component : TissuecollectionInfoComponent},
+  { path: 'home', component : HomeComponent},
+  { path: 'tissue_collection_edit', component : TissuecollectionEditComponent},
+  { path: 'tissue_collection_info', component : TissuecollectionInfoComponent},
   { path: 'tissue_collection/:uid', component : TissuecollectionDetailsComponent},
 
 ];
@@ -25,5 +25,4 @@ export class AppRoutingModule { }
 
 export const routingComponents = [
 
-  HomeinfoComponent
   ];
