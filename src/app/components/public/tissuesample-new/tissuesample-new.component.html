@@ -2,16 +2,16 @@
     <div class="row">
         <div class="col-md-6">
             <!-- Default form contact -->
-            <form #tissue_sample_new="ngForm" (ngSubmit)="save(tissue_sample_new.value); onClear();" class="border border-light p-5">
+            <form #tissue_sample_new="ngForm" (ngSubmit)="onClear();" class="border border-light p-5">
 
-                <p class="h4 mb-4 text-center">New Associated Sample</p>
+                <p class="h4 mb-4 text-center">New Associated Sample for Collection #{{collection_id}}</p>
 
-                <!-- Collection Id -->
+                <!-- Id -->
                 <div class="form-group">
-                    <label for="collection_id">Collection Id</label>
-                    <input #collection_id="ngModel" [(ngModel)]="tissue_sample.collection_id" name="collection_id" type="number" id="collection_id" class="form-control" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="collection_id.touched && collection_id.invalid">
-                        Collection Id is required!
+                    <label for="nid"># Id</label>
+                    <input #nid="ngModel" [(ngModel)]="tissue_sample.nid" name="nid" type="number" id="nid" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="nid.touched && nid.invalid">
+                        # Id is required!
                     </div>
                 </div>
 
@@ -34,9 +34,6 @@
                 </div>
 
                 <button class="btn btn-info" (click)="create(tissue_sample_new.value);">Submit</button>
-                <button *ngIf="!this.tissuesampleUID" class="btn btn-info" (click)="onClear();">Clear</button>
-                <button *ngIf="this.tissuesampleUID" [disabled]="!tissue_sample_new.valid" class="btn btn-info" (click)="save(tissue_sample_new.value);">Update</button>
-                <button *ngIf="this.tissuesampleUID" [disabled]="!tissue_sample_new.valid" class="btn btn-info" (click)="cancel();">Cancel</button>
 
             </form>
 

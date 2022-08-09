@@ -12,6 +12,7 @@ import { TissueSampleService } from 'src/app/services/tissue_sample/tissue_sampl
 export class TissuesampleInfoComponent implements OnInit {
 
   console = console;
+
   @Input()
     collection_id!: null|number;
 
@@ -23,6 +24,12 @@ export class TissuesampleInfoComponent implements OnInit {
 
     this.tissue_samples = this.TissueSampleService.getAllTissueSample()
 
+  }
+
+  delete(tissue_sample:tissue_sample){
+    if(confirm("Are you sure that you want to delete this?"))
+      this.TissueSampleService.deleteTissueSample(tissue_sample);
+      this.router.navigate(['/tissue_collection/'+tissue_sample.collection_uid]);
   }
 
 }

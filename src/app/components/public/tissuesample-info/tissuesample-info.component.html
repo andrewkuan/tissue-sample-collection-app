@@ -10,6 +10,7 @@
                 <th>Donor Count</th>
                 <th>Material Type</th>
                 <th>Last Updated</th>
+                <th></th>
             </tr>
         </thead>
         <ng-container *ngFor=" let tissue_sample of tissue_samples | async">
@@ -20,10 +21,12 @@
                         <td>{{tissue_sample.donor_count}}</td>
                         <td>{{tissue_sample.material_type}}</td>
                         <td>{{tissue_sample.last_updated.toDate() | date: 'longDate'}}</td>
+                        <td>
+                            <a><i (click)="delete(tissue_sample)" class="far fa-trash-alt"></i></a>
+                        </td>
                     </tr>
                 </tbody>
             </ng-container>
         </ng-container>
     </table>
 </div>
-<button routerLink="/tissue_sample_new" mdbBtn type="button" class="lighten red darken-4" text-color="white" mdbWavesEffect>New Associated Sample</button>

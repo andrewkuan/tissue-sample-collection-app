@@ -22,4 +22,10 @@ export class TissuecollectionInfoComponent implements OnInit {
 
   }
 
+  delete(tissue_collection:tissue_collection){
+    if(confirm("Are you sure that you want to delete this?"))
+      this.TissueCollectionService.deleteTissueCollection(tissue_collection);
+      this.router.navigate(['/home']);
+  }
+
 }

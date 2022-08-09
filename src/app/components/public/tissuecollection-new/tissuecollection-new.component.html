@@ -2,9 +2,18 @@
     <div class="row">
         <div class="col-md-6">
             <!-- Default form contact -->
-            <form #tissue_collection_new="ngForm" (ngSubmit)="save(tissue_collection_new.value); onClear();" class="border border-light p-5">
+            <form #tissue_collection_new="ngForm" (ngSubmit)="onClear();" class="border border-light p-5">
 
                 <p class="h4 mb-4 text-center">New Associated Sample</p>
+
+                <!-- Id -->
+                <div class="form-group">
+                    <label for="nid"># Id</label>
+                    <input #nid="ngModel" [(ngModel)]="tissue_collection.nid" name="nid" type="number" id="nid" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="nid.touched && nid.invalid">
+                        # Id is required!
+                    </div>
+                </div>
 
                 <!-- Title -->
                 <div class="form-group">
@@ -25,9 +34,6 @@
                 </div>
 
                 <button class="btn btn-info" (click)="create(tissue_collection_new.value);">Submit</button>
-                <button *ngIf="!this.tissuecollectionUID" class="btn btn-info" (click)="onClear();">Clear</button>
-                <button *ngIf="this.tissuecollectionUID" [disabled]="!tissue_collection_new.valid" class="btn btn-info" (click)="save(tissue_collection_new.value);">Update</button>
-                <button *ngIf="this.tissuecollectionUID" [disabled]="!tissue_collection_new.valid" class="btn btn-info" (click)="cancel();">Cancel</button>
 
             </form>
 

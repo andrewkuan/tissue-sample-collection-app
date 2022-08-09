@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 
 import { TissueCollectionService } from './services/tissue_collection/tissue_collection.service';
 import { TissueSampleService } from './services/tissue_sample/tissue_sample.service';
-import { TissuecollectionEditComponent } from './components/public/tissuecollection-edit/tissuecollection-edit.component';
 import { TissuecollectionInfoComponent } from './components/public/tissuecollection-info/tissuecollection-info.component';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -21,6 +20,8 @@ import { TissuesampleInfoComponent } from './components/public/tissuesample-info
 import { HomeComponent } from './components/public/home/home/home.component';
 import { TissuesampleNewComponent } from './components/public/tissuesample-new/tissuesample-new.component';
 import { TissuecollectionNewComponent } from './components/public/tissuecollection-new/tissuecollection-new.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { Overlay } from '@angular/cdk/overlay';
 
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
@@ -28,14 +29,13 @@ import { TissuecollectionNewComponent } from './components/public/tissuecollecti
 @NgModule({
   declarations: [
     AppComponent,
-    TissuecollectionEditComponent,
     TissuecollectionInfoComponent,
     TissuecollectionDetailsComponent,
     NavbarComponent,
     TissuesampleInfoComponent,
     HomeComponent,
     TissuesampleNewComponent,
-    TissuecollectionNewComponent,
+    TissuecollectionNewComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ import { TissuecollectionNewComponent } from './components/public/tissuecollecti
     BrowserAnimationsModule,
     HttpClientModule,
     MdbCollapseModule ,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     TissueCollectionService,

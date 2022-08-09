@@ -33,35 +33,22 @@ export class TissuecollectionNewComponent implements OnInit {
 
   @ViewChild('tissue_collection_new',  {static: false}) form!: NgForm;
 
-  save(tissue_collection: tissue_collection){
-    this.TissueCollectionService.updateTissueCollection(tissue_collection, this.tissuecollectionUID);
-
-    // this.clearField(); 
-    this.router.navigate(['/tissue_collection_info']);
-  }
-
-  create(tissue_sample: tissue_collection){
+  create(tissue_collection: tissue_collection){
     var newdoc = this.afs.collection('tissue-collection').ref.doc()
     this.TissueCollectionService.createTissueCollection({
               uid : newdoc.id,
-              nid : 1,
-              disease_term : tissue_sample.disease_term,
-              title : tissue_sample.title
+              nid : tissue_collection.nid,
+              disease_term : tissue_collection.disease_term,
+              title : tissue_collection.title
             },newdoc.id);
-    
-    console.log("working")
 
     // this.clearField(); 
-    this.router.navigate(['/tissue_collection_info']);
+    this.router.navigate(['/tissue_collection/'+newdoc.id]);
   }
 
   //reset form function
   onClear(){
     this.form.reset();
-  }
-
-  cancel(){
-    this.router.navigate(['/tissue_collection_info']);
   }
 
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 import { tissue_collection } from 'src/app/models/tissue_collection';
 import { TissueCollectionService } from 'src/app/services/tissue_collection/tissue_collection.service';
 
@@ -15,8 +14,8 @@ export class TissuecollectionDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private TissueCollectionService: TissueCollectionService,
-  ) { }
+    private TissueCollectionService: TissueCollectionService
+  ) {}
 
   ngOnInit(): void {
     this.getTissueCollection();

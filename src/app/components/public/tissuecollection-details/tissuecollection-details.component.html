@@ -7,5 +7,11 @@
             <p>Disease Term: <b>{{tissue_collection.disease_term}}</b></p>
         </div>
         <app-tissuesample-info [collection_id]="tissue_collection.nid" ></app-tissuesample-info>
+        <!-- Buttons trigger collapse -->
+        <button class="btn btn-primary" type="button" (click)="basicCollapse.toggle()" [attr.aria-expanded]="!basicCollapse.collapsed" aria-controls="collapseExample">Add Associated Sample</button>
+        <!--Collapsed content-->
+        <div class="mt-3" id="collapseExample" mdbCollapse #basicCollapse="mdbCollapse">
+        <app-tissuesample-new [collection_uid]="tissue_collection.uid" [collection_id]="tissue_collection.nid"></app-tissuesample-new>
+        </div>
 </div>
 

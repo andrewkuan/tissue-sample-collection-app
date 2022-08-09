@@ -23,7 +23,6 @@ export class TissueCollectionService {
       actions.map(a => {
         const data = a.payload.doc.data() as tissue_collection;
         const id = a.payload.doc.id;
-        console.log(id)
         return { id, ...data};
       })
     )));
