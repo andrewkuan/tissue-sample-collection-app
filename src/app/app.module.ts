@@ -1,10 +1,11 @@
 import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -18,6 +19,8 @@ import { TissuecollectionDetailsComponent } from './components/public/tissuecoll
 import { NavbarComponent } from './components/main/navbar/navbar.component';
 import { TissuesampleInfoComponent } from './components/public/tissuesample-info/tissuesample-info.component';
 import { HomeComponent } from './components/public/home/home/home.component';
+import { TissuesampleNewComponent } from './components/public/tissuesample-new/tissuesample-new.component';
+import { TissuecollectionNewComponent } from './components/public/tissuecollection-new/tissuecollection-new.component';
 
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
@@ -25,13 +28,14 @@ import { HomeComponent } from './components/public/home/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
     TissuecollectionEditComponent,
     TissuecollectionInfoComponent,
     TissuecollectionDetailsComponent,
     NavbarComponent,
     TissuesampleInfoComponent,
     HomeComponent,
+    TissuesampleNewComponent,
+    TissuecollectionNewComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { HomeComponent } from './components/public/home/home/home.component';
     AngularFirestoreModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MdbCollapseModule 
+    MdbCollapseModule ,
+    FormsModule
   ],
   providers: [
     TissueCollectionService,

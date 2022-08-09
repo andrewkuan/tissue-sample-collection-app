@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Default form contact -->
+            <form #tissue_collection_new="ngForm" (ngSubmit)="save(tissue_collection_new.value); onClear();" class="border border-light p-5">
+
+                <p class="h4 mb-4 text-center">New Associated Sample</p>
+
+                <!-- Title -->
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input #title="ngModel" [(ngModel)]="tissue_collection.title" name="title" type="text" id="title" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="title.touched && title.invalid">
+                        Title is required!
+                    </div>
+                </div>
+
+                <!-- Disease Term -->
+                <div class="form-group">
+                    <label for="disease_term">Disease Term</label>
+                    <input #disease_term="ngModel" [(ngModel)]="tissue_collection.disease_term" name="disease_term" type="text" id="disease_term" class="form-control" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="disease_term.touched && disease_term.invalid">
+                        Disease Term is required!
+                    </div>
+                </div>
+
+                <button class="btn btn-info" (click)="create(tissue_collection_new.value);">Submit</button>
+                <button *ngIf="!this.tissuecollectionUID" class="btn btn-info" (click)="onClear();">Clear</button>
+                <button *ngIf="this.tissuecollectionUID" [disabled]="!tissue_collection_new.valid" class="btn btn-info" (click)="save(tissue_collection_new.value);">Update</button>
+                <button *ngIf="this.tissuecollectionUID" [disabled]="!tissue_collection_new.valid" class="btn btn-info" (click)="cancel();">Cancel</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+

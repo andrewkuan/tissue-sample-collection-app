@@ -13,7 +13,7 @@ export class TissuesampleInfoComponent implements OnInit {
 
   console = console;
   @Input()
-    collection_id!: number;
+    collection_id!: null|number;
 
   constructor(private router: Router, private TissueSampleService : TissueSampleService) { }
 
