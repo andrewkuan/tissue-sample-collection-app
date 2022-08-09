@@ -18,10 +18,12 @@ export class TissuecollectionInfoComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //Extraction of all tissue collections from database
     this.tissue_collections = this.TissueCollectionService.getAllTissueCollection()
 
   }
 
+  //Function to delete the chosen tissue collection from database
   delete(tissue_collection:tissue_collection){
     if(confirm("Are you sure that you want to delete this?"))
       this.TissueCollectionService.deleteTissueCollection(tissue_collection);

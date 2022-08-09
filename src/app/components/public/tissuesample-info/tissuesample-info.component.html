@@ -2,6 +2,7 @@
 <br>
 <h1>Associated Tissue Samples</h1>
 <br>
+<!-- Table containing all the tissue sample entries-->
 <div class="d-flex align-items-center bg-light mb-3">
     <table class="table table-hover align-middle">
         <thead>
@@ -13,7 +14,9 @@
                 <th></th>
             </tr>
         </thead>
+        <!-- Extraction of all tissue samples from database-->
         <ng-container *ngFor=" let tissue_sample of tissue_samples | async">
+            <!-- Filter tissue samples to only those which are associated to the chosen tissue collection-->
             <ng-container *ngIf="tissue_sample.collection_uid == collection_uid">
                 <tbody>
                     <tr>
@@ -21,6 +24,7 @@
                         <td>{{tissue_sample.donor_count}}</td>
                         <td>{{tissue_sample.material_type}}</td>
                         <td>{{tissue_sample.last_updated.toDate() | date: 'longDate'}}</td>
+                        <!-- Button to delete each tissue sample-->
                         <td>
                             <a><i (click)="delete(tissue_sample)" class="far fa-trash-alt"></i></a>
                         </td>

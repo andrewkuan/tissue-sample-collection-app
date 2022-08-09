@@ -33,6 +33,7 @@ export class TissuecollectionNewComponent implements OnInit {
 
   @ViewChild('tissue_collection_new',  {static: false}) form!: NgForm;
 
+  //Function to create new tissue collection entry
   create(tissue_collection: tissue_collection){
     var newdoc = this.afs.collection('tissue-collection').ref.doc()
     this.TissueCollectionService.createTissueCollection({
@@ -42,11 +43,10 @@ export class TissuecollectionNewComponent implements OnInit {
               title : tissue_collection.title
             },newdoc.id);
 
-    // this.clearField(); 
     this.router.navigate(['/tissue_collection/'+newdoc.id]);
   }
 
-  //reset form function
+  //Function to reset form
   onClear(){
     this.form.reset();
   }

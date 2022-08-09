@@ -21,6 +21,7 @@ export class TissuecollectionDetailsComponent implements OnInit {
     this.getTissueCollection();
   }
 
+  //Function to make pull all the details of the chosen tissue collection
   getTissueCollection(){
     const id = this.route.snapshot.paramMap.get('uid')
     return this.TissueCollectionService.getTissueCollection(id!).subscribe( data => this.tissue_collection = data!)

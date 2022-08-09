@@ -13,11 +13,13 @@ export class TissueCollectionService {
 
   constructor(private afs: AngularFirestore) {  
     
+    //Extraction of all tissue collection and order them by their nid
     this.tissuecollectionCollection = this.afs.collection('tissue-collection', ref => 
     ref.orderBy('nid','asc')); 
 
   }
 
+  // Function to get all tissue collections from the database
   getAllTissueCollection(){
     return this.tissuecollectionCollection.snapshotChanges().pipe(map(actions =>(
       actions.map(a => {
@@ -28,15 +30,18 @@ export class TissueCollectionService {
     )));
   }
 
+  //Function to get a single tissue collection from the database
   getTissueCollection(tissuecollectionUID:string){
     this.tissuecollectionDocument = this.afs.doc('/tissue-collection/' + tissuecollectionUID)
     return this.tissuecollectionDocument.valueChanges()
   }
 
+  //Function to create a new tissue collection entry in the database
   createTissueCollection(tissuecollection:tissue_collection, tissuecollectionUID:string){
     this.afs.collection("tissue-collection").doc(tissuecollectionUID).set(tissuecollection)
   }
 
+  //Function to delete an existing tissue collection in the database
   deleteTissueCollection(tissuecollection:tissue_collection){
     this.afs.doc('/tissue-collection/'+tissuecollection.uid).delete()
   }

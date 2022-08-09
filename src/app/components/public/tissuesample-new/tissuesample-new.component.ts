@@ -39,6 +39,7 @@ export class TissuesampleNewComponent implements OnInit {
 
   @ViewChild('tissue_sample_new',  {static: false}) form!: NgForm;
 
+  //Function to create a new tissue sample entry
   create(tissue_sample: tissue_sample){
     var newdoc = this.afs.collection('tissue-sample').ref.doc()
     this.TissueSampleService.createTissueSample({
@@ -51,11 +52,10 @@ export class TissuesampleNewComponent implements OnInit {
               material_type : tissue_sample.material_type
             },newdoc.id);
 
-    // this.clearField(); 
     this.router.navigate(['/tissue-collection/'+this.collection_uid]);
   }
 
-  //reset form function
+  //Function to Reset Form
   onClear(){
     this.form.reset();
   }

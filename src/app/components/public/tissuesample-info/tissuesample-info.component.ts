@@ -22,10 +22,12 @@ export class TissuesampleInfoComponent implements OnInit {
   
   ngOnInit(): void {
 
+    //Extraction of all tissue samples from the database
     this.tissue_samples = this.TissueSampleService.getAllTissueSample()
 
   }
 
+  //Function to delete tissue sample from the database
   delete(tissue_sample:tissue_sample){
     if(confirm("Are you sure that you want to delete this?"))
       this.TissueSampleService.deleteTissueSample(tissue_sample);
