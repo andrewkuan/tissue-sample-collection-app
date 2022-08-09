@@ -14,7 +14,7 @@ export class TissuesampleInfoComponent implements OnInit {
   console = console;
 
   @Input()
-    collection_id!: null|number;
+    collection_uid!: null|string;
 
   constructor(private router: Router, private TissueSampleService : TissueSampleService) { }
 

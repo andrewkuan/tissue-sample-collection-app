@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/public/home/home/home.component';
+import { HomeComponent } from './components/public/home/home.component';
 
 import { TissuecollectionDetailsComponent } from './components/public/tissuecollection-details/tissuecollection-details.component';
 import { TissuecollectionInfoComponent } from './components/public/tissuecollection-info/tissuecollection-info.component';

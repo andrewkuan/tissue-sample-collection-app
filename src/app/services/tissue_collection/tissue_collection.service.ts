@@ -41,8 +41,4 @@ export class TissueCollectionService {
     this.afs.doc('/tissue-collection/'+tissuecollection.uid).delete()
   }
 
-  updateTissueCollection(tissuecollection:tissue_collection, tissuecollectionUID:string){
-    return this.afs.collection("tissue-collection").doc(tissuecollectionUID).update(tissuecollection);
-  }
-
 }

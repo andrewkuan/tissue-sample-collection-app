@@ -17,7 +17,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { TissuecollectionDetailsComponent } from './components/public/tissuecollection-details/tissuecollection-details.component';
 import { NavbarComponent } from './components/main/navbar/navbar.component';
 import { TissuesampleInfoComponent } from './components/public/tissuesample-info/tissuesample-info.component';
-import { HomeComponent } from './components/public/home/home/home.component';
+import { HomeComponent } from './components/public/home/home.component';
 import { TissuesampleNewComponent } from './components/public/tissuesample-new/tissuesample-new.component';
 import { TissuecollectionNewComponent } from './components/public/tissuecollection-new/tissuecollection-new.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';

@@ -41,8 +41,4 @@ export class TissueSampleService {
     this.afs.doc('/tissue-sample/'+ tissuesample.uid).delete()
   }
 
-  updateTissueSample(tissuesample:tissue_sample, tissuesampleUID:string){
-    return this.afs.collection("tissue-sample").doc(tissuesampleUID).update(tissuesample);
-  }
-
 }

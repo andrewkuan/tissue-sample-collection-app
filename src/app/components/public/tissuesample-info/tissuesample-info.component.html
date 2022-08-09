@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <ng-container *ngFor=" let tissue_sample of tissue_samples | async">
-            <ng-container *ngIf="tissue_sample.collection_id == collection_id">
+            <ng-container *ngIf="tissue_sample.collection_uid == collection_uid">
                 <tbody>
                     <tr>
                         <td>{{tissue_sample.nid}}</td>

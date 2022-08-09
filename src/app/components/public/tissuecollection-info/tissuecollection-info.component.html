@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor=" let tissue_collection of tissue_collections | async" routerLink="../tissue_collection/{{tissue_collection.uid}}">
+            <tr *ngFor=" let tissue_collection of tissue_collections | async">
                 <td>{{tissue_collection.nid}}</td>
                 <td>{{tissue_collection.title}}</td>
                 <td>{{tissue_collection.disease_term}}</td>
@@ -24,7 +24,9 @@
                     </button>
                 </td>
                 <td>
-                    <a><i (click)="delete(tissue_collection)" class="far fa-trash-alt"></i></a>
+                    <button type="button" class="btn btn-link btn-sm px-3 dark" style="color:#262626">
+                        <i (click)="delete(tissue_collection)" class="far fa-trash-alt"></i>
+                    </button>
                 </td>
             </tr>
         </tbody>
